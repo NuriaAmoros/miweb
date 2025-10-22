@@ -1,0 +1,71 @@
+/* ==== ESTILO GENERAL CLARO ==== */
+:root{ 
+  --bg:#ffffff; 
+  --panel:#f8f8f8; 
+  --text:#222222; 
+  --muted:#555555; 
+  --accent:#f4b942; 
+  --brand:#3a3a3a; 
+  --radius:6px; 
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0}
+body{ background:var(--bg); color:var(--text); font-family:'Press Start 2P', monospace; line-height:1.6; }
+
+/* ==== BARRA SUPERIOR ==== */
+.tabs{
+  position:sticky; top:0; z-index:1000;
+  background:var(--bg);
+  border-bottom:2px solid var(--brand);
+}
+.tabbar{
+  max-width:1100px; margin:0 auto; padding:.4rem 1rem;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{
+  color:var(--text); text-decoration:none; font-weight:700;
+  font-size:.75rem; /* más pequeño */
+}
+
+/* ==== PESTAÑAS DERECHA ==== */
+.tablist{
+  display:flex; gap:.3rem; list-style:none; margin:0; padding:0;
+}
+.tab{
+  display:inline-block; position:relative;
+  font-size:.55rem;           /* más pequeño */
+  padding:.35rem .55rem;      /* compacto */
+  text-decoration:none;
+  color:var(--text); background:var(--panel);
+  border:1px solid var(--brand); border-bottom:none; 
+  border-radius:var(--radius) var(--radius) 0 0;
+  opacity:.9;
+}
+.tab:hover{ background:#eaeaea; opacity:1; }
+.tab.active{
+  background:var(--bg); border-color:var(--accent); color:var(--accent);
+  z-index:2; opacity:1;
+}
+.section{ max-width:1100px; margin:0 auto; padding:2rem 1rem; scroll-margin-top:64px; }
+
+/* ==== TITULOS Y TEXTO ==== */
+.section h2{ margin:.2rem 0 1rem; font-size:.85rem; }
+.section h3{ color:var(--accent); margin:.8rem 0 .3rem; font-size:.7rem; }
+.chips{ color:var(--muted); font-size:.6rem; }
+
+/* ==== TARJETAS DE PROYECTO ==== */
+.card{
+  background:var(--panel); border:1px solid var(--brand);
+  border-radius:var(--radius); padding:.8rem; margin:.8rem 0;
+  font-size:.65rem;
+}
+.card a{ color:var(--text); text-decoration:underline; }
+.card a:hover{ color:var(--accent); }
+
+/* ==== FOOTER ==== */
+.foot{
+  text-align:center; color:var(--muted); padding:1rem;
+  border-top:1px solid var(--brand);
+  font-size:.6rem;
+}

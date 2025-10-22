@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio · Nuria Amorós</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body id="top">
+  <!-- Pestañas tipo carpeta pequeñas a la derecha -->
+  <header class="tabs">
+    <nav class="tabbar" aria-label="Navegación por pestañas">
+      <a class="brand" href="#top">Nuria Amorós</a>
+      <ul class="tablist">
+        <li><a class="tab" href="#sobre-mi">Sobre mí</a></li>
+        <li><a class="tab" href="#habilidades">Habilidades</a></li>
+        <li><a class="tab" href="#proyectos">Proyectos</a></li>
+        <li><a class="tab" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección SOBRE MÍ -->
+    <section id="sobre-mi" class="section">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy desarrolladora Full Stack Junior. Trabajo con Java/Spring, React, Node y SQL.
+        Me interesa construir software claro, útil y mantenible.
+      </p>
+    </section>
+
+    <!-- Sección HABILIDADES -->
+    <section id="habilidades" class="section">
+      <h2>Habilidades</h2>
+
+      <h3>Frontend</h3>
+      <p class="chips">HTML5 · CSS3 · JavaScript · React · Bootstrap</p>
+
+      <h3>Backend</h3>
+      <p class="chips">Java · Spring Boot · Node.js · Express · NestJS</p>
+
+      <h3>Bases de datos</h3>
+      <p class="chips">MySQL · Oracle · SQL Server · SQLite</p>
+
+      <h3>Control de versiones / Sistemas</h3>
+      <p class="chips">Git · GitHub · Linux · Bash · PowerShell</p>
+    </section>
+
+    <!-- Sección PROYECTOS -->
+    <section id="proyectos" class="section">
+      <h2>Proyectos</h2>
+
+      <article class="card">
+        <h3>Gestor de Libros (Java + Swing + MySQL)</h3>
+        <p>
+          CRUD con DAO, validaciones y exportación. Incluye README y script SQL.
+        </p>
+        <p>
+          <a href="https://github.com/tuusuario/gestor-libros" target="_blank" rel="noopener">Código</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>API de Recetas (Spring Boot)</h3>
+        <p>
+          API REST con JPA, seguridad básica y documentación OpenAPI.
+        </p>
+        <p>
+          <a href="https://github.com/tuusuario/api-recetas" target="_blank" rel="noopener">Código</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>SPA React + API externa</h3>
+        <p>
+          Buscador con rutas y estado global. Paginación y accesibilidad.
+        </p>
+        <p>
+          <a href="https://github.com/tuusuario/react-spa" target="_blank" rel="noopener">Código</a> · 
+          <a href="https://tudemo.vercel.app" target="_blank" rel="noopener">Demo</a>
+        </p>
+      </article>
+    </section>
+
+    <!-- Sección CONTACTO -->
+    <section id="contacto" class="section">
+      <h2>Contacto</h2>
+      <p>
+        <a href="mailto:nuria@example.com">nuria@example.com</a> · 
+        <a href="https://github.com/tuusuario" target="_blank" rel="noopener">GitHub</a> · 
+        <a href="https://www.linkedin.com/in/tuusuario" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    © <span id="year"></span> Nuria Amorós
+  </footer>
+
+  <!-- Script para pestaña activa -->
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    const tabs = document.querySelectorAll('.tabbar .tab');
+    const secs = [...tabs].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    const setActive = () => {
+      const y = window.scrollY + 100;
+      tabs.forEach(a => a.classList.remove('active'));
+      for (const s of secs) {
+        if (s.offsetTop <= y && s.offsetTop + s.offsetHeight > y) {
+          const a = document.querySelector(`.tab[href="#${s.id}"]`);
+          if (a) a.classList.add('active');
+          break;
+        }
+      }
+    };
+
+    setActive();
+    window.addEventListener('scroll', setActive, {passive:true});
+  </script>
+</body>
+</html>
